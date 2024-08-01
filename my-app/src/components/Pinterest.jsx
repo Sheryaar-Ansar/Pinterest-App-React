@@ -48,7 +48,7 @@ const Pinterest = () => {
         <button onClick={searchHandler} className='ml-3 bg-red-400 p-3 text-white font-semibold border border-red-400 rounded-[10px] uppercase text-lg shadowCustom hover:opacity-80 transition'>Search</button>
       </div>
       <div className='flex flex-wrap justify-center mt-6'>
-        {(data == '' || !search) ? <h2>Loading...</h2> : data.map((image, index) => (
+        {(data == '' && !search) ? <h2>Loading...</h2> : data.map((image, index) => (
           <div className='flex' key={index}>
             <img src={image.urls.full} className='w-[400px] mx-3 my-3 border rounded-[10px] shadow-2xl cursor-pointer hover:opacity-50 hover:transition-opacity' />
           </div>
