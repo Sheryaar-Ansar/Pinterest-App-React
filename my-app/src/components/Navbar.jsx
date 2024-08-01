@@ -21,7 +21,7 @@ const Navbar = () => {
   </>
   return (
       <header>
-        <div className='fixed top-0 left-0 w-full h-[80px] flex justify-between items-center lg:py-5 py-4 px-20 bg-gray-200 flex-1'>
+        <div className='fixed top-0 left-0 w-full h-[80px] flex justify-between items-center lg:py-5 py-4 px-20 bg-gray-200 flex-1 z-10'>
           <img src={logo} alt="" className='w-[150px]'/>
           <div className='hidden md:flex lg:flex flex-1 items-center justify-end transition font-normal'>
           <NavLink to={'/'} className={'uppercase mx-3 font-semibold p-[14px] rounded-[14px] hover:bg-gray-300'}>Home</NavLink>

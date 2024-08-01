@@ -4,3 +4,8 @@
     border-radius: 14px;
     border: 2px solid rgb(248, 93, 93);
 }
+
+/* Footer CSS Custom*/
+.shadowCustom{
+    box-shadow: 0 0 15px red;
+}
