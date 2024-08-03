@@ -16,6 +16,7 @@ const Navbar = () => {
       <div className='text-center text-2xl p-20 block'>
         <NavLink to={'/'} className={'my-4 py-4 block uppercase p-[14px] rounded-[14px] hover:bg-gray-500'}>Home</NavLink>
         <NavLink to={'/image-generator'} className={'my-4 py-4 block uppercase p-[14px] rounded-[14px] hover:bg-gray-500'}>Image Generator</NavLink>
+        <NavLink to={'/create-pin'} className={'my-4 py-4 block uppercase p-[14px] rounded-[14px] hover:bg-gray-500'}>Create Pin</NavLink>
       </div>
     </div>
   </>
@@ -26,6 +27,7 @@ const Navbar = () => {
           <div className='hidden md:flex lg:flex flex-1 items-center justify-end transition font-normal'>
           <NavLink to={'/'} className={'uppercase mx-3 font-semibold p-[14px] rounded-[14px] hover:bg-gray-300'}>Home</NavLink>
           <NavLink to={'/image-generator'} className={'uppercase mx-3 font-semibold p-[14px] rounded-[14px] hover:bg-gray-300'}>Image Generator</NavLink>
+          <NavLink to={'/create-pin'} className={'uppercase mx-3 font-semibold p-[14px] rounded-[14px] hover:bg-gray-300'}>Create Pin</NavLink>
           </div>
           <div>
             {click && content}
