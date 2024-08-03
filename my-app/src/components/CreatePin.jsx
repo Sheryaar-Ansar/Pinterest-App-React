@@ -38,6 +38,12 @@ const CreatePin = () => {
             required
           />
         </div>
+        
+        <div className='flex justify-center'>
+          <button type='submit' className='bg-red-400 text-white p-3 rounded-[10px] font-semibold uppercase shadowCustom hover:opacity-80 transition'>
+            Create Pin
+          </button>
+          </div>
       </form>
     </div>
   );
