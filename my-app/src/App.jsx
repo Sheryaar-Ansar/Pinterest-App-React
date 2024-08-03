@@ -6,7 +6,7 @@ import Pinterest from './components/Pinterest'
 import ImageGenerator from './components/ImageGenerator'
 import Footer from './components/Footer'
 import PinterestId from './components/PinterestId'
-
+import CreatePin from './components/CreatePin';
 
 function App() {
 
