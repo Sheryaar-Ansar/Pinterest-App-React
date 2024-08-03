@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 
 const Pinterest = () => {
   const [data, setData] = useState([]);
@@ -77,9 +78,9 @@ const Pinterest = () => {
       </div>
       <div className='flex flex-wrap justify-center mt-6'>
         {loading ? (
-          <h2>Loading...</h2>
+          <Loader/>
         ) : data.length === 0 && !search ? (
-          <h2>No Results Found</h2>
+          <Loader/>
         ) : data.map((image, index) => (
           <div className='flex' key={index}>
             <Link to={`/${image.id}`} className='flex'>
@@ -89,7 +90,7 @@ const Pinterest = () => {
         ))}
       </div>
       <div className='flex justify-center items-center mt-5 mb-20'>
-        {(loading && page < 1) ? <h1>Loading...</h1> : (
+        {(loading && page < 1) ? <Loader/> : (
           <div>
             <button onClick={prevHandler} className='p-3 bg-red-400 border rounded-[15px] mx-3 font-semibold text-lg uppercase hover:bg-red-200 text-white transition'>Previous</button>
             <button onClick={nextHandler} className='p-3 bg-red-400 border rounded-[15px] mx-3 font-semibold text-lg uppercase hover:bg-red-200 text-white transition'>Next</button>
