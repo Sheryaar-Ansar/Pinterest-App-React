@@ -9,7 +9,11 @@ import PinterestId from './components/PinterestId'
 import CreatePin from './components/CreatePin';
 
 function App() {
+  const [pins, setPins] = useState([]);
 
+  const addPin = (newPin) => {
+    setPins([...pins, newPin]);
+  };
   return (
     <>
       <div className='min-h-screen flex flex-col mt-[200px] w-full h-full'>
@@ -18,6 +22,7 @@ function App() {
           <Route path='/' element={<Pinterest />} />
           <Route path='/:id' element={<PinterestId/>} />
           <Route path='/image-generator' element={<ImageGenerator />} />
+          <Route path='/create-pin' element={<CreatePin addPin={addPin} />} />
         </Routes>
         <div className="sticky top-full bottom-0 w-full left-0 block">
           <Footer />
