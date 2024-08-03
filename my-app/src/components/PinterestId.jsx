@@ -3,6 +3,7 @@ import { FaComment } from 'react-icons/fa'
 import { FcLike } from 'react-icons/fc'
 import { PiShareFatFill } from 'react-icons/pi'
 import { Link, useParams } from 'react-router-dom'
+import Loader from './Loader'
 
 const PinterestId = () => {
   const { id } = useParams()
@@ -37,7 +38,7 @@ const PinterestId = () => {
     <div>
       <Link to={'/'} className='text-red-400 text-[22px] font-semibold uppercase border border-red-400 rounded-md p-3 ml-3 hover:bg-red-400 hover:text-white shadowCustom'>Back to Homepage</Link>
       <div className='flex justify-center items-center flex-col mb-10 mt-20'>
-        {loading ? <h1>Loading...</h1> : !data ? <h1>Loading...</h1> :(
+        {loading ? <Loader /> : !data ? <Loader /> :(
           <div className='border-[2px] border-red-200 rounded-md pb-6 px-1 shadow-2xl bg-gray-200'>
             <img src={data.dataB.links.download} alt="" className='w-[600px] rounded-md' />
             <div className=''>
