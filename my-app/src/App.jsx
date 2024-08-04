@@ -7,7 +7,7 @@ import ImageGenerator from './components/ImageGenerator'
 import Footer from './components/Footer'
 import PinterestId from './components/PinterestId'
 import CreatePin from './components/CreatePin';
-
+import ShowPins from './components/ShowPins';
 function App() {
   const [pins, setPins] = useState([]);
 
@@ -23,7 +23,7 @@ function App() {
           <Route path='/:id' element={<PinterestId/>} />
           <Route path='/image-generator' element={<ImageGenerator />} />
           <Route path='/create-pin' element={<CreatePin addPin={addPin} />} />
-          <Route path='/show-pins' element={<ShowPins pins={pins} />} />
+          { <Route path='/show-pins' element={<ShowPins pins={pins} />} /> }
         </Routes>
         <div className="sticky top-full bottom-0 w-full left-0 block">
           <Footer />
