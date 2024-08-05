@@ -11,8 +11,8 @@ import ShowPins from './components/ShowPins';
 function App() {
   const [pins, setPins] = useState([]);
 
-  const addPin = (newPin) => {
-    setPins([...pins, newPin]);
+  const addPin = (pin) => {
+    setPins([...pins, pin]);
   };
   return (
     <>

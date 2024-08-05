@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShowPins = ({pins}) => {
+const ShowPins = ({ pins }) => {
   return (
     <div className='flex flex-wrap justify-center mt-10'>
       {pins.length === 0 ? (
