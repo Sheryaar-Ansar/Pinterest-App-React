@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 
-const CreatePin = () => {
+const CreatePin = ({addPin}) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
-
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newPin = { title, description, image };
+    addPin(newPin);
+    setTitle('');
+    setDescription('');
+    setImage('');
+  };
   return (
     <div className='flex justify-center items-center mt-10'>
       <form className='w-full max-w-lg p-8 border rounded-[15px] shadow-lg'>
