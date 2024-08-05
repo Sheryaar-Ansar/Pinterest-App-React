@@ -1,13 +1,112 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Loader from './Loader'
+import imgGenerate from '../assets/imgenerate.jpg'
 
 const ImageGenerator = () => {
+  const [search, setSearch] = useState('')
+  const [image, setImage] = useState('')
+  const [loading, setLoading] = useState(false)
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  }
+  const fetchApi = async (data) =>{
+    setLoading(true)
+    const response = await fetch(
+      "https://api-inference.huggingface.co/models/Melonie/text_to_image_finetuned",
+      {
+        headers: {
+          Authorization: "Bearer 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",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(data),
+      }
+    );
+    const result = await response.blob();
+    setLoading(false)
+    return URL.createObjectURL(result);
+  }
+  useEffect(()=>{
+    fetchApi()
+  },[])
+  // API DOCUMENTATION => i am using async await (not .then)
+
+  // query({"inputs": "Astronaut riding a horse"}).then((response) => {
+  //   // Use image
+  // });
+
+  const handleClick = async(e) =>{
+    e.preventDefault();
+    const imageURL = await fetchApi({'inputs': search});
+    setImage(imageURL);   
+  }
   return (
-    <div>
-      <h1>
-        Image Generator Tool
-      </h1>
+    <div className='flex flex-col justify-center items-center'>
+      <div>
+        <input type="text" 
+        placeholder='Astronaut riding a horse'
+        onChange={onChange}
+        value={search}
+        className='w-[250px] border-red-400 border rounded-[50px] p-3'
+        />
+        <button onClick={handleClick} className='ml-3 bg-red-400 p-3 text-white font-semibold border border-red-400 rounded-[10px] uppercase text-lg shadowCustom hover:opacity-80 transition'>Generate</button>
+      </div>
+      <div className='my-8'>
+        {loading ? <Loader/> : !image ? <img src={imgGenerate}  className='w-[500px] shadow-lg rounded-md'/> : <img src={image} className='w-[500px] shadow-lg rounded-md'/>}
+      </div>
     </div>
   )
 }
 
 export default ImageGenerator
+
+
+// import React, { useState } from "react";
+
+// const query = async (data) => {
+//   const response = await fetch(
+//     "https://api-inference.huggingface.co/models/Melonie/text_to_image_finetuned",
+//     {
+//       headers: {
+//         Authorization: "Bearer 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",
+//         "Content-Type": "application/json",
+//       },
+//       method: "POST",
+//       body: JSON.stringify(data),
+//     }
+//   );
+//   const result = await response.blob();
+//   return URL.createObjectURL(result);
+// };
+
+// function ImageGenerator() {
+//   const [inputText, setInputText] = useState("");
+//   const [imageSrc, setImageSrc] = useState("");
+
+//   const handleInputChange = (event) => {
+//     setInputText(event.target.value);
+//   };
+
+//   const handleGenerateImage = async () => {
+//     const imageUrl = await query({ inputs: inputText });
+//     setImageSrc(imageUrl);
+//   };
+
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <h1>Text to Image Generator</h1>
+//         <input
+//           type="text"
+//           value={inputText}
+//           onChange={handleInputChange}
+//           placeholder="Enter description"
+//         />
+//         <button onClick={handleGenerateImage}>Generate Image</button>
+//         {imageSrc && <img src={imageSrc} alt="Generated" />}
+//       </header>
+//     </div>
+//   );
+// }
+
+// export default ImageGenerator;
