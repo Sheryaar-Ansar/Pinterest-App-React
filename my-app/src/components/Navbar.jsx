@@ -39,41 +39,6 @@ const Navbar = () => {
         </div>
       </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // <nav>
-    //   <div className='h-10vh flex justify-between z-10 text-white lg:py-5 px-20 py-4 flex-1 fixed top-0 left-0 w-full bg-gray-200'>
-    //     <div className='flex items-center flex-1'>
-    //       <img src={logo} alt="" className='w-[150px]' />
-    //     </div>
-    //     <div className='lg:flex md:flex lg: flex-1 items-center justify-end font-normal hidden'>
-    //       <div>
-    //         <NavLink to={'/'}>Home</NavLink>
-    //         <NavLink to={'/image-generator'}>Image Generator</NavLink>
-    //       </div>
-    //     </div>
-    //     <div>
-    //       {click && content}
-    //     </div>
-    //     <button className='block sm:hidden transition' onClick={handleClick}>{click ?<FaTimes className='text-red-600'/> :<CiMenuBurger className='text-red-600'/>}</button>
-    //   </div>
-    // </nav>
   )
 }
 

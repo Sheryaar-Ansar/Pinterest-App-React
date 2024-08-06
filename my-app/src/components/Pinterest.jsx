@@ -47,16 +47,15 @@ const Pinterest = () => {
       setLoading(false)
 
     }
-    else {
+    else{
       const URL = `https://api.unsplash.com/search/photos?page=${page}&query=${search}&client_id=JU7u_DW13aDNw7uWME36YfdBGiawuiCX1RvEnPH1zE8&per_page=10`;
       const response = await fetch(URL);
       const result = await response.json();
       setData(result.results);
       setLoading(false)
       setSearchShow(false)
-
-
     }
+
   }
 
   useEffect(() => {
