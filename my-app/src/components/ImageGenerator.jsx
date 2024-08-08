@@ -26,9 +26,6 @@ const ImageGenerator = () => {
     setLoading(false)
     return URL.createObjectURL(result);
   }
-  useEffect(()=>{
-    fetchApi()
-  },[])
   // API DOCUMENTATION => i am using async await (not .then)
 
   // query({"inputs": "Astronaut riding a horse"}).then((response) => {
