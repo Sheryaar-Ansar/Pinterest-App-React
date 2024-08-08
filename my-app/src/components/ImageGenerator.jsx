@@ -38,8 +38,8 @@ const ImageGenerator = () => {
     setImage(imageURL);   
   }
   return (
-    <div className='flex flex-col justify-center items-center'>
-      <div>
+    <div className='block md:flex flex-col justify-center items-center'>
+      <div className='flex justify-center items-center'>
         <input type="text" 
         placeholder='Astronaut riding a horse'
         onChange={onChange}
