@@ -59,14 +59,12 @@ const Pinterest = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
       if (page === 1 && search === '') {
         fetchHomeData()
       }
       else if (searchShow) {
         fetchData()
       }
-    }, 6000)
 
   }, [page, search])
   return (
